@@ -2,22 +2,22 @@ import time
 import random
 import math
 
-#global seed
-#seed = []
+#num_lines = 40
+
+seed = []
 
 def setup():
     size(1024, 768)
     noLoop()
-    #seed = [6, 8, 9, 2, 3, 7, 5, 1, 4]
-    #global seed
-    #seed = list(range(40))
-    # random.shuffle(seed)
+    global seed
+    seed = list(range(20))
+    random.shuffle(seed)
 
 
 def draw():
     background(51)
 
-    seed = [11, 5, 9, 12, 3, 2, 6, 4, 7, 8, 10, 1]
+    global seed
     print('seed:', seed)
 
     layers = sort_with_steps(seed)
@@ -92,7 +92,7 @@ def get_line_edges(line_width, line_number, num_lines):
     spacing = width / (num_lines + 1)
 
     max_width = spacing * 0.9
-    this_width = line_width * max_width / 12
+    this_width = line_width * max_width / num_lines
 
     center = spacing * (line_number + 1)
 
